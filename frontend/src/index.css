@@ -30,6 +30,7 @@
 }
 
 @theme {
+    /* colors */
   --color-neutral-950: var(--neutral-950);
   --color-neutral-900: var(--neutral-900);
   --color-neutral-800: var(--neutral-800);
@@ -53,6 +54,7 @@
   --color-red-500: var(--red-500);
   --color-red-100: var(--red-100);
 
+  /* element spacing */
    --spacing-0:    0px;
   --spacing-025:  2px;
   --spacing-050:  4px;
@@ -67,6 +69,18 @@
   --spacing-600:  48px;
   --spacing-800:  64px;
   --spacing-1000: 80px;
+
+  /* border radius */
+  --radius-0:    0px;
+  --radius-4:    4px;
+  --radius-6:    6px;
+  --radius-8:    8px;
+  --radius-10:   10px;
+  --radius-12:   12px;
+  --radius-16:   16px;
+  --radius-20:   20px;
+  --radius-24:   24px;
+  --radius-full: 999px;
 }
 
 @layer components {
