@@ -1,1 +1,55 @@
 @import "tailwindcss";
+
+:root {
+  /* Neutral */
+  --neutral-950: #04121B;
+  --neutral-900: #252737;
+  --neutral-800: #32353D;
+  --neutral-700: #3B404B;
+  --neutral-600: #525B68;
+  --neutral-500: #717784;
+  --neutral-400: #939AAD;
+  --neutral-300: #CACFD8;
+  --neutral-200: #E0E4EA;
+  --neutral-100: #F3F5F8;
+  --neutral-50: #F5F7FA;
+  --neutral-0: #FFFFFF;
+
+  /* Blue */
+  --blue-700: #2547D0;
+  --blue-500: #335CFF;
+  --blue-50: #EBF1FF;
+
+  /* Green */
+  --green-500: #21C16B;
+  --green-100: #D1FBE9;
+
+  /* Red */
+  --red-500: #FB3748;
+  --red-100: #FFD5D8;
+}
+
+@theme {
+  --color-neutral-950: var(--neutral-950);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-0: var(--neutral-0);
+
+  --color-blue-700: var(--blue-700);
+  --color-blue-500: var(--blue-500);
+  --color-blue-50: var(--blue-50);
+
+  --color-green-500: var(--green-500);
+  --color-green-100: var(--green-100);
+
+  --color-red-500: var(--red-500);
+  --color-red-100: var(--red-100);
+}
