@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import './fonts.css';
 
 :root {
   /* Neutral */
@@ -81,6 +82,11 @@
   --radius-20:   20px;
   --radius-24:   24px;
   --radius-full: 999px;
+
+  /* font families */
+  --font-sans:  'Inter', sans-serif;
+  --font-serif: 'Noto Serif', serif;
+  --font-mono:  'Source Code Pro', monospace;
 }
 
 @layer components {
