@@ -68,3 +68,47 @@
   --spacing-800:  64px;
   --spacing-1000: 80px;
 }
+
+@layer components {
+  .text-preset-1 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .text-preset-2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .text-preset-3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+
+  .text-preset-4 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+  }
+
+  .text-preset-5 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+  }
+
+  .text-preset-6 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+  }
+}
