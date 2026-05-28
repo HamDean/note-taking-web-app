@@ -6,11 +6,12 @@ import settingIcon from "../assets/images/icon-settings.svg";
 
 const Menubar = () => {
   return (
-    <nav className="fixed inset-x-0 bottom-0 shadow-2xl shadow-neutral-300">
+    <nav className="fixed inset-x-0 bottom-0 shadow-2xl shadow-neutral-300 px-4 py-3">
       <ul className="flex justify-between tags-section ">
         <div className="tag-section">
           <div>
             <img src={homeIcon} alt="home icon" />
+
           </div>
           <span>Home</span>
         </div>
