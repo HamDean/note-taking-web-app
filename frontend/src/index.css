@@ -132,3 +132,27 @@
     letter-spacing: -0.2px;
   }
 }
+
+.tag-section {
+  @apply flex flex-col items-center justify-center py-150 px-200 cursor-pointer
+}
+
+.tag-section:hover {
+  @apply bg-blue-50
+}
+
+.tag-section div {
+  @apply h-8 w-17.25 md:h-12.5 md:w-20  md:px-auto
+}
+
+.tag-section img {
+  @apply h-4.5 w-4.5
+}
+
+.tag-section span {
+  @apply hidden md:block md:gap-8
+}
+
+.tags-section > div:not(:last-child) {
+  @apply md:border-r md:border-neutral-200 md:border-l 
+}
