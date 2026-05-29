@@ -1,5 +1,6 @@
 import SearchInput from "./SearchInput";
 import settingsIcon from "../assets/images/icon-settings.svg";
+import { Link } from "react-router";
 
 const DesktopPageHeader = () => {
   return (
@@ -11,7 +12,7 @@ const DesktopPageHeader = () => {
 
       <div className="flex gap-4 items-center">
         <SearchInput />
-        <img src={settingsIcon} alt="Settings icon" />
+        <Link to='/settings'><img src={settingsIcon} alt="Settings icon" /></Link>
       </div>
     </nav>
   );
