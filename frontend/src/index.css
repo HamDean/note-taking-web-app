@@ -137,7 +137,7 @@
   @apply flex flex-col items-center justify-center py-1 px-5.5 cursor-pointer
 }
 
-.tag-section:hover {
+.active {
   @apply bg-blue-50 rounded-4 text-blue-500 fill-blue-500
 }
 
