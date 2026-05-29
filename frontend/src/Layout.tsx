@@ -11,7 +11,9 @@ const Layout = () => {
       <DesktopPageHeader />
       <Menubar />
       <SideBar />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 };
