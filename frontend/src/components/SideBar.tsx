@@ -5,7 +5,7 @@ import Tab from "./Tab";
 import TagsSection from "./TagsSection";
 
 const SideBar = () => {
-  const tags = [];
+  const tags = ["Cooking", "Finance"];
   const tabs = [
     { src: homeIcon, title: "All Notes" },
     { src: archiveIcon, title: "Archived Notes" },
@@ -25,7 +25,7 @@ const SideBar = () => {
 
       <hr className="text-neutral-200 h-px" />
 
-      {tags.length > 0 && <TagsSection tags={[]} />}
+      {tags.length > 0 && <TagsSection tags={tags} />}
     </article>
   );
 };
