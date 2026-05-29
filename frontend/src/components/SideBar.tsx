@@ -12,7 +12,7 @@ const SideBar = () => {
   ];
 
   return (
-    <article className="hidden lg:flex w-68 flex-col gap-4 border-r border-neutral-200 h-screen px-4 py-3">
+    <article className="hidden fixed top-0 lg:flex w-68 flex-col gap-4 border-r border-neutral-200 h-screen px-4 py-3">
       <div>
         <img src={logo} />
       </div>
