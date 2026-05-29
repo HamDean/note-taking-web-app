@@ -1,43 +1,17 @@
-import homeIcon from "../assets/images/icon-home.svg";
-import searchIcon from "../assets/images/icon-search.svg";
-import archiveIcon from "../assets/images/icon-archive.svg";
-import tagIcon from "../assets/images/icon-tag.svg";
-import settingIcon from "../assets/images/icon-settings.svg";
+import { tabs } from "../utils/constansts";
 
 const Menubar = () => {
   return (
     <section className="fixed lg:hidden inset-x-0 bottom-0 shadow-2xl shadow-neutral-300 px-4 py-3">
       <ul className="flex justify-between tags-section ">
-        <div className="tag-section">
-          <div>
-            <img src={homeIcon} alt="home icon" />
+        {tabs.map((tab, index) => (
+          <div className="tag-section" key={index}>
+            <div>
+              <img src={tab.iconSource} alt={tab.altText} />
+            </div>
+            <span>{tab.tab}</span>
           </div>
-          <span>Home</span>
-        </div>
-        <div className="tag-section">
-          <div>
-            <img src={searchIcon} alt="search icon" />
-          </div>
-          <span>Search</span>
-        </div>
-        <div className="tag-section">
-          <div>
-            <img src={archiveIcon} alt="archived icons" />
-          </div>
-          <span>Archived</span>
-        </div>
-        <div className="tag-section">
-          <div>
-            <img src={tagIcon} alt="tags icon" />
-          </div>
-          <span>Tags</span>
-        </div>
-        <div className="tag-section">
-          <div>
-            <img src={settingIcon} alt="settings icon" />
-          </div>
-          <span>Settings</span>
-        </div>
+        ))}
       </ul>
     </section>
   );
