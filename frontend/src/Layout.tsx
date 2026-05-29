@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import DesktopPageHeader from "./components/DesktopPageHeader";
 import Menubar from "./components/Menubar";
 import Navbar from "./components/Navbar";
@@ -10,6 +11,7 @@ const Layout = () => {
       <DesktopPageHeader />
       <Menubar />
       <SideBar />
+      <Outlet />
     </>
   );
 };

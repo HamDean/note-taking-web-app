@@ -11,7 +11,6 @@ const Menubar = () => {
         <div className="tag-section">
           <div>
             <img src={homeIcon} alt="home icon" />
-
           </div>
           <span>Home</span>
         </div>
