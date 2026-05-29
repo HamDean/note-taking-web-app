@@ -2,6 +2,7 @@ import logo from "../assets/images/logo.svg";
 import homeIcon from "../assets/images/icon-home.svg";
 import archiveIcon from "../assets/images/icon-archive.svg";
 import Tab from "./Tab";
+import TagsSection from "./TagsSection";
 
 const SideBar = () => {
   const tabs = [
@@ -20,6 +21,10 @@ const SideBar = () => {
           <Tab key={index} iconSrc={tab.src} tabTitle={tab.title} />
         ))}
       </div>
+
+      <hr className="text-neutral-200 h-px" />
+
+      <TagsSection />
     </article>
   );
 };
