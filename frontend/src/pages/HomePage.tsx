@@ -12,6 +12,7 @@ const HomePage = () => {
     <section className="align-page flex flex-col gap-1.5 px-4 py-5 lg:px-0 lg:py-0">
       {notes.map((note, index) => (
         <NoteComponent
+          key={index}
           onSelectNote={() => setSelectedIndex(index)}
           isSelected={selectedIndex === index}
           noteTitle={note.title}

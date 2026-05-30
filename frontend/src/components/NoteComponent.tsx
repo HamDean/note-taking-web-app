@@ -1,3 +1,5 @@
+import NoteTag from "./NoteTag";
+
 interface Props {
   noteTitle: string;
   noteTags: string[];
@@ -22,20 +24,7 @@ const NoteComponent = ({
       <h2 className="text-preset-3">{noteTitle}</h2>
 
       <div className="flex gap-1">
-        <div
-          className="w-11 h-4.5 bg-neutral-200 
-            text-neutral-950 text-preset-6 flex  
-            items-center justify-center rounded-4"
-        >
-          {noteTags[0]}
-        </div>
-        <div
-          className="w-11 h-4.5 bg-neutral-200 
-            text-neutral-950 text-preset-6 flex  
-            items-center justify-center rounded-4"
-        >
-          {noteTags[1]}
-        </div>
+        { noteTags.map((tag, index) => <NoteTag key={index} tag={tag} />)}
       </div>
 
       <span className="text-neutral-700 text-preset-6">{dateCreated}</span>
