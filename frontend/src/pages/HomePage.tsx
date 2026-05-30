@@ -10,6 +10,7 @@ const HomePage = () => {
   ];
   return (
     <section className="align-page flex flex-col gap-1.5 px-4 py-5 lg:px-0 lg:py-0">
+      <h1 className="text-preset-1 mb-4 lg:hidden">All Notes</h1>
       {notes.map((note, index) => (
         <NoteComponent
           key={index}
