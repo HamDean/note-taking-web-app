@@ -1,6 +1,6 @@
 const TagsPage = () => {
   return (
-    <div>TagsPage</div>
+    <div className="align-page">TagsPage</div>
   )
 }
 export default TagsPage

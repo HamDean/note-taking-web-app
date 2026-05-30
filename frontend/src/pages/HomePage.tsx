@@ -1,6 +1,6 @@
 const HomePage = () => {
   return (
-    <section>HomePage</section>
+    <section className="align-page">HomePage</section>
   )
 }
 export default HomePage

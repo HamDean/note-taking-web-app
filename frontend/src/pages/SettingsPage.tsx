@@ -1,6 +1,6 @@
 const SettingsPage = () => {
   return (
-    <div>SettingsPage</div>
+    <div className="align-page">SettingsPage</div>
   )
 }
 export default SettingsPage

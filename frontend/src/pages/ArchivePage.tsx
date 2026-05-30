@@ -1,6 +1,6 @@
 const ArchivePage = () => {
   return (
-    <div>ArchivePage</div>
+    <div className="align-page">ArchivePage</div>
   )
 }
 export default ArchivePage

@@ -1,6 +1,6 @@
 const SearchPage = () => {
   return (
-    <div>SearchPage</div>
+    <div className="align-page">SearchPage</div>
   )
 }
 export default SearchPage

@@ -141,9 +141,9 @@
   @apply bg-blue-50 rounded-4 text-blue-500 fill-blue-500
 }
 
-/* .tag-section div {
-  @apply h-8 w-17.25 md:h-12.5 md:w-20 
-} */
+.align-page {
+  @apply lg:absolute left-68
+}
 
 .tag-section img {
   @apply h-4.5 w-4.5
