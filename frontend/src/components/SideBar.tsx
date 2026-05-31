@@ -3,6 +3,7 @@ import Tab from "./Tab";
 import TagsSection from "./TagsSection";
 import { sidetabs } from "../utils/constansts";
 import { useState } from "react";
+import { NavLink } from "react-router";
 
 const SideBar = () => {
   const [selectedTab, setSelectedTab] = useState("All Notes");
@@ -19,13 +20,15 @@ const SideBar = () => {
 
       <div>
         {sidetabs.map((tab, index) => (
-          <Tab
-            key={index}
-            iconSrc={tab.src}
-            tabTitle={tab.title}
-            onSelectTab={(tab) => setSelectedTab(tab)}
-            isSelected={tab.title === selectedTab}
-          />
+          <NavLink to={`/${tab.title}`}>
+            <Tab
+              key={index}
+              iconSrc={tab.src}
+              tabTitle={tab.title}
+              onSelectTab={(tab) => setSelectedTab(tab)}
+              isSelected={tab.title === selectedTab}
+            />
+          </NavLink>
         ))}
       </div>
 
