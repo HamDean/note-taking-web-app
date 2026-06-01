@@ -2,6 +2,7 @@ package com.hamdeen.backend.services;
 
 import com.hamdeen.backend.dtos.NoteDto;
 import com.hamdeen.backend.entities.Note;
+import com.hamdeen.backend.exceptions.NoteNotFoundException;
 import com.hamdeen.backend.mappers.NoteMapper;
 import com.hamdeen.backend.repositories.NoteRepository;
 import lombok.AllArgsConstructor;
@@ -38,10 +39,7 @@ public class NoteService {
 
     public NoteDto getNoteById(String id) {
         var note = noteRepository.findById(id).orElse(null);
-        if (note == null) {
-            // throw and catch error globally
-            return null;
-        }
+        if (note == null) throw new NoteNotFoundException();
 
         return noteMapper.toNoteDto(note);
     }
