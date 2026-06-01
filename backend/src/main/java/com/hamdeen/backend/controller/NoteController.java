@@ -40,6 +40,11 @@ public class NoteController {
         return noteService.getNoteById(id);
     }
 
+    @PatchMapping("/{id}/archive")
+    public NoteDto archiveNote(@PathVariable String id) {
+        return noteService.archiveNote(id);
+    }
+
     @ExceptionHandler(NoteNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNoteNotFoundException() {
         return  new ResponseEntity<>(Map.of("message", "Note not found"), HttpStatus.NOT_FOUND);

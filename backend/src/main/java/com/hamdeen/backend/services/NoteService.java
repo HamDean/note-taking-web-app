@@ -43,4 +43,17 @@ public class NoteService {
 
         return noteMapper.toNoteDto(note);
     }
+
+    public NoteDto archiveNote(String id) {
+        var note = noteRepository.findById(id).orElse(null);
+
+        if (note == null) throw new NoteNotFoundException();
+
+        note.setIsArchived(true);
+        note.setUpdatedAt(LocalDateTime.now());
+
+        noteRepository.save(note);
+
+        return noteMapper.toNoteDto(note);
+    }
 }
