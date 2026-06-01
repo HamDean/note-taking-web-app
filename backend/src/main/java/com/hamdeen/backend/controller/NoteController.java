@@ -50,6 +50,12 @@ public class NoteController {
         return noteService.archiveNote(id);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteNoteById(@PathVariable String id) {
+        noteService.deleteNote(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @ExceptionHandler(NoteNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNoteNotFoundException() {
         return  new ResponseEntity<>(Map.of("message", "Note not found"), HttpStatus.NOT_FOUND);

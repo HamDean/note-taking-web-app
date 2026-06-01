@@ -69,4 +69,10 @@ public class NoteService {
 
         return noteMapper.toNoteDto(note);
     }
+
+    public void  deleteNote(String id) {
+        var note = noteRepository.findById(id).orElse(null);
+        if (note == null) throw new NoteNotFoundException();
+        noteRepository.delete(note);
+    }
 }
