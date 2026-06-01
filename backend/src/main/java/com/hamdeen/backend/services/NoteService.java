@@ -56,4 +56,17 @@ public class NoteService {
 
         return noteMapper.toNoteDto(note);
     }
+
+    public NoteDto updateNote(String id, String title, String content) {
+        var note = noteRepository.findById(id).orElse(null);
+        if (note == null) throw new NoteNotFoundException();
+
+        note.setTitle(title);
+        note.setContent(content);
+        note.setUpdatedAt(LocalDateTime.now());
+
+        noteRepository.save(note);
+
+        return noteMapper.toNoteDto(note);
+    }
 }

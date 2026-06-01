@@ -40,6 +40,11 @@ public class NoteController {
         return noteService.getNoteById(id);
     }
 
+    @PutMapping("/{id}")
+    public NoteDto updateNoteById(@PathVariable String id, @RequestBody CreateNoteRequest request) {
+        return noteService.updateNote(id, request.getTitle(), request.getContent());
+    }
+
     @PatchMapping("/{id}/archive")
     public NoteDto archiveNote(@PathVariable String id) {
         return noteService.archiveNote(id);
