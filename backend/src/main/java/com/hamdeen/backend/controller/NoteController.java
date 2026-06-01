@@ -35,6 +35,11 @@ public class NoteController {
         return  noteService.getAllNotes();
     }
 
+    @GetMapping("/archived")
+    public List<NoteDto> getAllArchivedNotes() {
+        return noteService.getAllArchivedNotes();
+    }
+
     @GetMapping("/{id}")
     public NoteDto getNoteById(@PathVariable String id) {
         return noteService.getNoteById(id);

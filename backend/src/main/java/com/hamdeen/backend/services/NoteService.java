@@ -75,4 +75,10 @@ public class NoteService {
         if (note == null) throw new NoteNotFoundException();
         noteRepository.delete(note);
     }
+
+    public  List<NoteDto> getAllArchivedNotes() {
+        var notes = noteRepository.findAllByIsArchivedIsTrue();
+
+        return notes.stream().map(noteMapper::toNoteDto).toList();
+    }
 }
