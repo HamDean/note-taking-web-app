@@ -31,4 +31,9 @@ public class NoteController {
     public List<NoteDto> getAllNotes() {
         return  noteService.getAllNotes();
     }
+
+    @GetMapping("/{id}")
+    public NoteDto getNoteById(@PathVariable String id) {
+        return noteService.getNoteById(id);
+    }
 }

@@ -35,4 +35,14 @@ public class NoteService {
         var notes = noteRepository.findAll();
         return notes.stream().map(noteMapper::toNoteDto).toList();
     }
+
+    public NoteDto getNoteById(String id) {
+        var note = noteRepository.findById(id).orElse(null);
+        if (note == null) {
+            // throw and catch error globally
+            return null;
+        }
+
+        return noteMapper.toNoteDto(note);
+    }
 }
