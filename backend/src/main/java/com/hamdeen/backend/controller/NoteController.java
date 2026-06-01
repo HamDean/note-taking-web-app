@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/notes")
@@ -17,8 +18,13 @@ public class NoteController {
     private final NoteService noteService;
 
     @PostMapping
-    public ResponseEntity<NoteDto> createNote(@RequestBody CreateNoteRequest request) {
+    public ResponseEntity<NoteDto> createNote(
+            @RequestBody CreateNoteRequest request,
+            UriComponentsBuilder uriComponentsBuilder
+    ) {
         var noteDto = noteService.createNote(request.getTitle(), request.getContent());
-        return ResponseEntity.ok(noteDto);
+        var uri = uriComponentsBuilder.path("/notes/{id}").buildAndExpand(noteDto.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(noteDto);
     }
 }
