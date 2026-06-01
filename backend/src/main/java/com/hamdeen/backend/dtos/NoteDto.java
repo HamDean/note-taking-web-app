@@ -11,6 +11,6 @@ public class NoteDto {
     private String title;
     private String content;
     private Boolean isArchived;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private String createdAt;
+    private String updatedAt;
 }
