@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -28,5 +29,10 @@ public class NoteService {
         noteRepository.save(note);
 
         return noteMapper.toNoteDto(note);
+    }
+
+    public List<NoteDto> getAllNotes() {
+        var notes = noteRepository.findAll();
+        return notes.stream().map(noteMapper::toNoteDto).toList();
     }
 }

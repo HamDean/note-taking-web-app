@@ -2,7 +2,6 @@ package com.hamdeen.backend.dtos;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data

@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CreateNoteRequest {
+    // TODO: validate these fields
     private String title;
     private String content;
 }

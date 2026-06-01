@@ -5,11 +5,10 @@ import com.hamdeen.backend.dtos.NoteDto;
 import com.hamdeen.backend.services.NoteService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/notes")
@@ -26,5 +25,10 @@ public class NoteController {
         var uri = uriComponentsBuilder.path("/notes/{id}").buildAndExpand(noteDto.getId()).toUri();
 
         return ResponseEntity.created(uri).body(noteDto);
+    }
+
+    @GetMapping
+    public List<NoteDto> getAllNotes() {
+        return  noteService.getAllNotes();
     }
 }
