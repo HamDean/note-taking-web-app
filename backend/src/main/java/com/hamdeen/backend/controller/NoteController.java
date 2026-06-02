@@ -31,8 +31,10 @@ public class NoteController {
     }
 
     @GetMapping
-    public List<NoteDto> getAllNotes() {
-        return  noteService.getAllNotes();
+    public List<NoteDto> getAllNotes(
+            @RequestParam(name = "filter", required = false, defaultValue = "") String filter
+    ) {
+        return  noteService.getAllNotes(filter);
     }
 
     @GetMapping("/archived")

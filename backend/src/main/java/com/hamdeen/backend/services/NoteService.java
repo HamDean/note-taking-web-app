@@ -5,22 +5,26 @@ import com.hamdeen.backend.entities.Note;
 import com.hamdeen.backend.exceptions.NoteNotFoundException;
 import com.hamdeen.backend.mappers.NoteMapper;
 import com.hamdeen.backend.repositories.NoteRepository;
+import com.hamdeen.backend.repositories.TagRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
 public class NoteService {
     private final NoteMapper noteMapper;
     private final NoteRepository noteRepository;
+    private final TagRepository tagRepository;
 
     public NoteDto createNote(String title, String content) {
         var note = new Note();
 
-        note.setId(java.util.UUID.randomUUID().toString());
+        note.setId(UUID.randomUUID().toString());
         note.setTitle(title);
         note.setContent(content);
         note.setCreatedAt(LocalDateTime.now());
@@ -32,8 +36,16 @@ public class NoteService {
         return noteMapper.toNoteDto(note);
     }
 
-    public List<NoteDto> getAllNotes() {
-        var notes = noteRepository.findAll();
+    public List<NoteDto> getAllNotes(String filter) {
+        List<Note> notes = List.of();
+        var tag = tagRepository.findByName(filter.toLowerCase()).orElse(null);
+
+        if (Objects.equals(filter, "") || tag == null) notes = noteRepository.findAll();
+        else {
+            notes = noteRepository.findAll();
+            notes = notes.stream().filter(note -> note.getTags().contains(tag)).toList();
+        }
+
         return notes.stream().map(noteMapper::toNoteDto).toList();
     }
 
