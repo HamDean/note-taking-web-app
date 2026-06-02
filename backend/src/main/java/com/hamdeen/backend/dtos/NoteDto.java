@@ -12,4 +12,5 @@ public class NoteDto {
     private Boolean isArchived;
     private String createdAt;
     private String updatedAt;
+    private String[] tags;
 }

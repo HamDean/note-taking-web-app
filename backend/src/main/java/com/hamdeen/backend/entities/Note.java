@@ -44,4 +44,8 @@ public class Note {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private Set<Tag> tags = new HashSet<>();
+
+    public String[] getTagsArray() {
+        return tags.stream().map(Tag::getName).toArray(String[]::new);
+    }
 }

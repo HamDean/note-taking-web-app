@@ -9,5 +9,6 @@ import org.mapstruct.Mapping;
 public interface NoteMapper {
     @Mapping(target = "createdAt", dateFormat = "dd-MM-yy HH:mm")
     @Mapping(target = "updatedAt", dateFormat = "dd-MM-yy HH:mm")
+    @Mapping(target = "tags", expression = "java(note.getTagsArray())")
     NoteDto toNoteDto(Note note);
 }
