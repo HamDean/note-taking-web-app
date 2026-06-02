@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import Menubar from "./components/Menubar";
 import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
+import AddNoteMobile from "./components/AddNoteMobile";
 
 const Layout = () => {
   return (
@@ -9,6 +10,7 @@ const Layout = () => {
       <Navbar />
       <Menubar />
       <SideBar />
+      <AddNoteMobile />
       <main>
         <Outlet />
       </main>
