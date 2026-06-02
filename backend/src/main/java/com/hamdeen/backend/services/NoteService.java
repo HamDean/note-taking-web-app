@@ -11,10 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -28,13 +25,17 @@ public class NoteService {
 
         if (tags != null && !tags.isBlank()) {
             Arrays.stream(tags.split(",")).toList().forEach(tag -> {
-                var tagEntity = tagRepository.findByName(tag.toLowerCase()).orElse(null);
+                var normalizedTag = tag.toLowerCase().trim();
+                if (normalizedTag.isBlank()) return;
+
+                var tagEntity = tagRepository.findByName(normalizedTag).orElse(null);
                 if (tagEntity == null) {
                     var newTag = new Tag();
-                    newTag.setName(tag.toLowerCase().trim());
+                    newTag.setName(normalizedTag);
                     newTag.setCreatedAt(LocalDateTime.now());
                     tagEntity = tagRepository.save(newTag);
-                };
+                }
+
                 note.getTags().add(tagEntity);
             });
         }
@@ -52,13 +53,13 @@ public class NoteService {
     }
 
     public List<NoteDto> getAllNotes(String filter) {
-        List<Note> notes = List.of();
+        List<Note> notes;
+
         var tag = tagRepository.findByName(filter.toLowerCase()).orElse(null);
 
-        if (Objects.equals(filter, "") || tag == null) notes = noteRepository.findAll();
+        if (filter.isEmpty() || tag == null) notes = noteRepository.findAll();
         else {
-            notes = noteRepository.findAll();
-            notes = notes.stream().filter(note -> note.getTags().contains(tag)).toList();
+            notes = noteRepository.findAll().stream().filter(note -> note.getTags().contains(tag)).toList();
         }
 
         return notes.stream().map(noteMapper::toNoteDto).toList();
@@ -100,6 +101,10 @@ public class NoteService {
     public void  deleteNote(String id) {
         var note = noteRepository.findById(id).orElse(null);
         if (note == null) throw new NoteNotFoundException();
+
+        note.getTags().clear();
+        noteRepository.save(note);
+
         noteRepository.delete(note);
     }
 
