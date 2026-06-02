@@ -3,7 +3,7 @@ import { tabs } from "../utils/constansts";
 
 const Menubar = () => {
   return (
-    <section className="fixed lg:hidden inset-x-0 bottom-0 shadow-2xl shadow-neutral-300 px-4 py-3">
+    <section className="fixed bg-white lg:hidden inset-x-0 bottom-0 shadow-2xl shadow-neutral-300 px-4 py-3">
       <ul className="flex justify-between tags-section ">
         {tabs.map((tab, index) => (
           <NavLink to={tab.pageLink} key={index}>
