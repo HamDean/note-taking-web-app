@@ -2,6 +2,7 @@ package com.hamdeen.backend.services;
 
 import com.hamdeen.backend.dtos.NoteDto;
 import com.hamdeen.backend.entities.Note;
+import com.hamdeen.backend.entities.Tag;
 import com.hamdeen.backend.exceptions.NoteNotFoundException;
 import com.hamdeen.backend.mappers.NoteMapper;
 import com.hamdeen.backend.repositories.NoteRepository;
@@ -10,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -21,8 +23,21 @@ public class NoteService {
     private final NoteRepository noteRepository;
     private final TagRepository tagRepository;
 
-    public NoteDto createNote(String title, String content) {
+    public NoteDto createNote(String title, String content, String tags) {
         var note = new Note();
+
+        if (tags != null && !tags.isBlank()) {
+            Arrays.stream(tags.split(",")).toList().forEach(tag -> {
+                var tagEntity = tagRepository.findByName(tag.toLowerCase()).orElse(null);
+                if (tagEntity == null) {
+                    var newTag = new Tag();
+                    newTag.setName(tag.toLowerCase().trim());
+                    newTag.setCreatedAt(LocalDateTime.now());
+                    tagEntity = tagRepository.save(newTag);
+                };
+                note.getTags().add(tagEntity);
+            });
+        }
 
         note.setId(UUID.randomUUID().toString());
         note.setTitle(title);

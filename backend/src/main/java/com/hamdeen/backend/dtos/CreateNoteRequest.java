@@ -7,4 +7,5 @@ public class CreateNoteRequest {
     // TODO: validate these fields
     private String title;
     private String content;
+    private String tags;
 }

@@ -24,7 +24,7 @@ public class NoteController {
             @RequestBody CreateNoteRequest request,
             UriComponentsBuilder uriComponentsBuilder
     ) {
-        var noteDto = noteService.createNote(request.getTitle(), request.getContent());
+        var noteDto = noteService.createNote(request.getTitle(), request.getContent(), request.getTags());
         var uri = uriComponentsBuilder.path("/notes/{id}").buildAndExpand(noteDto.getId()).toUri();
 
         return ResponseEntity.created(uri).body(noteDto);
