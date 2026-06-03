@@ -7,7 +7,7 @@ import { NavLink } from "react-router";
 
 const SideBar = () => {
   const [selectedTab, setSelectedTab] = useState("All Notes");
-  const tags = ["Cooking", "Finance"];
+  const tags: string[] = [];
 
   return (
     <article

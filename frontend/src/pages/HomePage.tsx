@@ -8,12 +8,8 @@ import NewNote from "../components/NewNote";
 const HomePage = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const { note = "All Notes" } = useParams();
-  const notes = [
-    { title: "title 1", tags: ["tag 1", "tag 2"], dateCreated: "29 May 2015" },
-    { title: "title 1", tags: ["tag 1", "tag 2"], dateCreated: "29 May 2015" },
-    { title: "title 1", tags: ["tag 1", "tag 2"], dateCreated: "29 May 2015" },
-    { title: "title 1", tags: ["tag 1", "tag 2"], dateCreated: "29 May 2015" },
-  ];
+  const notes: { title: string; tags: string[]; dateCreated: string }[] = []; // Replace with actual notes data
+  
   return (
     <>
       <DesktopPageHeader pageTitle={note} />
