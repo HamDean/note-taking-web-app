@@ -1,6 +1,10 @@
+import NewNotePageNavBar from "../components/NewNotePageNavBar";
+
 const CreateNewNotePage = () => {
   return (
-    <div>CreateNewNotePage</div>
+    <section className="px-8 py-5">
+      <NewNotePageNavBar />
+    </section>
   )
 }
 export default CreateNewNotePage
