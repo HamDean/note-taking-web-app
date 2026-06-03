@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NoteComponent from "../components/NoteComponent";
 import DesktopPageHeader from "../components/DesktopPageHeader";
-import { useParams } from "react-router";
+import { Outlet, useParams } from "react-router";
 import EmptyNotes from "../components/EmptyNotes";
 import NewNote from "../components/NewNote";
 
@@ -9,7 +9,7 @@ const HomePage = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const { note = "All Notes" } = useParams();
   const notes: { title: string; tags: string[]; dateCreated: string }[] = []; // Replace with actual notes data
-  
+
   return (
     <>
       <DesktopPageHeader pageTitle={note} />
@@ -36,7 +36,9 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="lg:w-full lg:border-r h-[calc(100vh-82px)] lg:border-neutral-200"></div>
+          <div className="lg:w-full lg:border-r h-[calc(100vh-82px)] lg:border-neutral-200">
+            <Outlet />
+          </div>
 
           <div className="lg:w-72.5"></div>
         </div>
