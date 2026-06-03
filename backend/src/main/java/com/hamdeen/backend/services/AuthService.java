@@ -5,6 +5,7 @@ import com.hamdeen.backend.entities.User;
 import com.hamdeen.backend.mappers.UserMapper;
 import com.hamdeen.backend.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,13 +15,14 @@ import java.time.LocalDateTime;
 public class AuthService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     public UserDto createUser(String email, String password) {
         var newUser = new User();
 
         newUser.setId(java.util.UUID.randomUUID().toString());
         newUser.setEmail(email);
-        newUser.setPassword(password);
+        newUser.setPassword(passwordEncoder.encode(password));
         newUser.setCreatedAt(LocalDateTime.now());
         newUser.setUpdatedAt(LocalDateTime.now());
 
