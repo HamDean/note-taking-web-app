@@ -1,5 +1,5 @@
 import NewNotePageNavBar from "../components/NewNotePageNavBar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import tagIcon from "../assets/images/icon-tag.svg";
 import timeIcon from "../assets/images/icon-clock.svg";
 
@@ -26,27 +26,29 @@ const CreateNewNotePage = () => {
         {/* content */}
         <div className="flex flex-col gap-3">
           {/* tags row */}
-          <div className="flex gap-2 text-preset-6">
+          <div className="flex gap-2 items-center text-preset-6 h-7">
             <div className="flex items-center gap-1.5 w-28.75">
               <img className="w-4 h-4" src={tagIcon} alt="Tag" />
               <span className="text-neutral-700">Tags</span>
             </div>
-            <input
-              type="text"
-              name="tags"
-              value={tagInput}
-              onChange={(e) => setTagInput(e.target.value)}
-              placeholder={
-                tags.length === 0
-                  ? "Add tags separated by commas (e.g. Work, Planning)"
-                  : ""
-              }
-              className="text-neutral-950 placeholder-neutral-400 bg-transparent outline-none w-full placeholder:text-wrap"
-            />
+            <div className="flex items-center w-full h-full">
+              <input
+                type="text"
+                name="tags"
+                value={tagInput}
+                onChange={(e) => setTagInput(e.target.value)}
+                placeholder={
+                  tags.length === 0
+                    ? "Add tags separated by commas (e.g. Work, Planning)"
+                    : ""
+                }
+                className="text-neutral-950 align-middle leading-12 placeholder-neutral-400 bg-transparent outline-none w-full placeholder:text-wrap"
+              />
+            </div>
           </div>
 
           {/* last edited row */}
-          <div className="flex gap-2 text-preset-6">
+          <div className="flex items-center gap-2 text-preset-6 h-7">
             <div className="flex items-center gap-1.5 w-28.75">
               <img className="w-4 h-4" src={timeIcon} alt="Last Edited" />
               <span className="text-neutral-700">Last Edited</span>
