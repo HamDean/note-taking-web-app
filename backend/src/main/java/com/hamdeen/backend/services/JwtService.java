@@ -1,29 +1,24 @@
 package com.hamdeen.backend.services;
 
+import com.hamdeen.backend.configs.JwtConfig;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 @Service
+@AllArgsConstructor
 public class JwtService {
-    @Value("${spring.jwt.secret}")
-    private String secret;
-
-    @Value("${spring.jwt.access-token-validity-seconds}")
-    private int accessTokenValiditySeconds;
-
-    @Value("${spring.jwt.refresh-token-validity-seconds}")
-    private int refreshTokenValiditySeconds;
+    private final JwtConfig jwtConfig;
 
     private String generateRefreshToken(String email) {
-        return generateToken(email, refreshTokenValiditySeconds);
+        return generateToken(email, jwtConfig.getRefreshTokenValiditySeconds());
     }
 
     public String generateAccessToken(String email) {
-        return generateToken(email, accessTokenValiditySeconds);
+        return generateToken(email, jwtConfig.getAccessTokenValiditySeconds());
     }
 
     public String generateToken(String email, int expiration) {
