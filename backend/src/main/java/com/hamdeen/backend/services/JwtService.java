@@ -12,11 +12,18 @@ public class JwtService {
     @Value("${spring.jwt.secret}")
     private String secret;
 
-    public String generateToken(String email) {
+    @Value("${spring.jwt.access-token-validity-seconds}")
+    private int accessTokenValiditySeconds;
+
+    public String generateAccessToken(String email) {
+        return generateToken(email, accessTokenValiditySeconds);
+    }
+
+    public String generateToken(String email, int expiration) {
         return Jwts.builder()
             .subject(email)
             .issuedAt(new Date())
-            .expiration(new Date(System.currentTimeMillis() + 10000))
+            .expiration(new Date(System.currentTimeMillis() + 100L * expiration))
             .signWith(Keys.hmacShaKeyFor(secret.getBytes()))
             .compact();
     }

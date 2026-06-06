@@ -36,10 +36,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public JwtResponse login(@RequestBody RegisterUserRequest request) {
-        System.out.println(jwtService.generateToken(request.getEmail()));
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
-        var token = jwtService.generateToken(request.getEmail());
+        var token = jwtService.generateAccessToken(request.getEmail());
 
         return new JwtResponse(token);
     }
