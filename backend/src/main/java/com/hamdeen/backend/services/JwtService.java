@@ -15,6 +15,13 @@ public class JwtService {
     @Value("${spring.jwt.access-token-validity-seconds}")
     private int accessTokenValiditySeconds;
 
+    @Value("${spring.jwt.refresh-token-validity-seconds}")
+    private int refreshTokenValiditySeconds;
+
+    private String generateRefreshToken(String email) {
+        return generateToken(email, refreshTokenValiditySeconds);
+    }
+
     public String generateAccessToken(String email) {
         return generateToken(email, accessTokenValiditySeconds);
     }
