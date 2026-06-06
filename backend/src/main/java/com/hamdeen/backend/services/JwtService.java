@@ -13,7 +13,7 @@ import java.util.Date;
 public class JwtService {
     private final JwtConfig jwtConfig;
 
-    private String generateRefreshToken(String email) {
+    public String generateRefreshToken(String email) {
         return generateToken(email, jwtConfig.getRefreshTokenValiditySeconds());
     }
 
