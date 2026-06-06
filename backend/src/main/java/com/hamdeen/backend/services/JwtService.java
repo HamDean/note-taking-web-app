@@ -26,7 +26,7 @@ public class JwtService {
             .subject(email)
             .issuedAt(new Date())
             .expiration(new Date(System.currentTimeMillis() + 100L * expiration))
-            .signWith(Keys.hmacShaKeyFor(secret.getBytes()))
+            .signWith(Keys.hmacShaKeyFor(jwtConfig.getSecret().getBytes()))
             .compact();
     }
 }
