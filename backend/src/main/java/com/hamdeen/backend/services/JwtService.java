@@ -25,8 +25,10 @@ public class JwtService {
         return Jwts.builder()
             .subject(email)
             .issuedAt(new Date())
-            .expiration(new Date(System.currentTimeMillis() + 100L * expiration))
+            .expiration(new Date(System.currentTimeMillis() + 1000L * expiration))
             .signWith(Keys.hmacShaKeyFor(jwtConfig.getSecret().getBytes()))
             .compact();
     }
+
+//    TODO: change from 403 to 401
 }
