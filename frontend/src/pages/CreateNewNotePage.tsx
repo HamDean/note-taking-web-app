@@ -57,6 +57,17 @@ const CreateNewNotePage = () => {
               Not yet saved
             </span>
           </div>
+
+          {/* Content input */}
+          <div
+            contentEditable
+            suppressContentEditableWarning
+            onInput={(e) => setContent(e.currentTarget.innerHTML)}
+            className="note-editor outline-none text-neutral-700 text-preset-6 md:text-preset-5
+                border-t border-t-neutral-200 mt-3 py-3
+            "
+            data-placeholder="Start typing your note here..."
+          />
         </div>
       </form>
     </section>
