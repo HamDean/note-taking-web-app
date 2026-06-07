@@ -36,11 +36,11 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="lg:w-full lg:border-r h-[calc(100vh-82px)] lg:border-neutral-200">
+          <div className="lg:min-w-110 lg:border-r h-[calc(100vh-82px)] lg:border-neutral-200">
             <Outlet />
           </div>
 
-          <div className="lg:w-72.5"></div>
+          <div className="lg:w-full"></div>
         </div>
       </section>
     </>

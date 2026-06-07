@@ -63,8 +63,9 @@ const CreateNewNotePage = () => {
             contentEditable
             suppressContentEditableWarning
             onInput={(e) => setContent(e.currentTarget.innerHTML)}
-            className="note-editor outline-none text-neutral-700 text-preset-6 md:text-preset-5
-                border-t border-t-neutral-200 mt-3 py-3
+            className="note-editor lg:overflow-y-scroll outline-none text-neutral-700 text-preset-6 md:text-preset-5
+                border-t border-t-neutral-200 my-3 py-3 lg:border-b md:border-b-neutral-200 lg:h-96
+                w-full
             "
             data-placeholder="Start typing your note here..."
           />
