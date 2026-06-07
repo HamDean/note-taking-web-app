@@ -1,6 +1,7 @@
 package com.hamdeen.backend.services;
 
 import com.hamdeen.backend.configs.JwtConfig;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.AllArgsConstructor;
@@ -31,12 +32,20 @@ public class JwtService {
     }
 
     public boolean validateToken(String token) {
-        var claims = Jwts.parser()
+        var claims = getClaims(token);
+
+        return claims.getExpiration().before(new Date());
+    }
+
+    private Claims getClaims(String token) {
+        return Jwts.parser()
             .verifyWith(Keys.hmacShaKeyFor(jwtConfig.getSecret().getBytes()))
             .build()
             .parseSignedClaims(token)
             .getPayload();
-
-        return claims.getExpiration().before(new Date());
     }
+
+//    public String getPrincipalFromToken(String token) {
+//
+//    }
 }
