@@ -45,7 +45,8 @@ public class JwtService {
             .getPayload();
     }
 
-//    public String getPrincipalFromToken(String token) {
-//
-//    }
+    public String getPrincipalFromToken(String token) {
+        var  claims = getClaims(token);
+        return claims.getSubject();
+    }
 }
