@@ -30,5 +30,13 @@ public class JwtService {
             .compact();
     }
 
-//    TODO: change from 403 to 401
+    public boolean validateToken(String token) {
+        var claims = Jwts.parser()
+            .verifyWith(Keys.hmacShaKeyFor(jwtConfig.getSecret().getBytes()))
+            .build()
+            .parseSignedClaims(token)
+            .getPayload();
+
+        return claims.getExpiration().before(new Date());
+    }
 }
