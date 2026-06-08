@@ -34,7 +34,7 @@ public class JwtService {
     public boolean validateToken(String token) {
         var claims = getClaims(token);
 
-        return claims.getExpiration().before(new Date());
+        return claims.getExpiration().after(new Date());
     }
 
     private Claims getClaims(String token) {
