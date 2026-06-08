@@ -19,6 +19,7 @@ public class NoteService {
     private final NoteMapper noteMapper;
     private final NoteRepository noteRepository;
     private final TagRepository tagRepository;
+    private final AuthService authService;
 
     public NoteDto createNote(String title, String content, String tags) {
         var note = new Note();
@@ -41,6 +42,7 @@ public class NoteService {
         }
 
         note.setId(UUID.randomUUID().toString());
+        note.setUser(authService.getCurrentUser());
         note.setTitle(title);
         note.setContent(content);
         note.setCreatedAt(LocalDateTime.now());
@@ -113,6 +115,4 @@ public class NoteService {
 
         return notes.stream().map(noteMapper::toNoteDto).toList();
     }
-
-    
 }
