@@ -56,12 +56,13 @@ public class NoteService {
 
     public List<NoteDto> getAllNotes(String filter) {
         List<Note> notes;
+        var userId = authService.getCurrentUser().getId();
 
-        var tag = tagRepository.findByName(filter.toLowerCase()).orElse(null);
+        var tag = tagRepository.findByNameAndUser(filter.toLowerCase(), authService.getCurrentUser()).orElse(null);
 
-        if (filter.isEmpty() || tag == null) notes = noteRepository.findAll();
+        if (filter.isEmpty() || tag == null) notes = noteRepository.findAllByUserId(userId);
         else {
-            notes = noteRepository.findAll().stream().filter(note -> note.getTags().contains(tag)).toList();
+            notes = noteRepository.findAllByUserId(userId).stream().filter(note -> note.getTags().contains(tag)).toList();
         }
 
         return notes.stream().map(noteMapper::toNoteDto).toList();

@@ -12,4 +12,6 @@ public interface NoteRepository extends JpaRepository<Note, Integer> {
 
 //    @Query("select n from Note n where n.isArchived = true ")
     List<Note> findAllByIsArchivedIsTrue();
+
+    List<Note> findAllByUserId(String userId);
 }
