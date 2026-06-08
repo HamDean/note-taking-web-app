@@ -5,6 +5,7 @@ import com.hamdeen.backend.entities.User;
 import com.hamdeen.backend.mappers.UserMapper;
 import com.hamdeen.backend.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,12 @@ public class AuthService {
         userRepository.save(newUser);
 
         return userMapper.toUserDto(newUser);
+    }
+
+    public User getCurrentUser() {
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        assert auth != null;
+        var email = (String) auth.getPrincipal();
+        return userRepository.findByEmail(email).orElseThrow();
     }
 }

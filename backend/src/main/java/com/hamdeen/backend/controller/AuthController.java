@@ -4,6 +4,7 @@ import com.hamdeen.backend.configs.JwtConfig;
 import com.hamdeen.backend.dtos.JwtResponse;
 import com.hamdeen.backend.dtos.RegisterUserRequest;
 import com.hamdeen.backend.dtos.UserDto;
+import com.hamdeen.backend.mappers.UserMapper;
 import com.hamdeen.backend.services.AuthService;
 import com.hamdeen.backend.services.JwtService;
 import jakarta.servlet.http.Cookie;
@@ -12,10 +13,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
@@ -26,6 +24,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final JwtConfig jwtConfig;
+    private final UserMapper userMapper;
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(
@@ -58,4 +57,12 @@ public class AuthController {
 
         return new JwtResponse(accessToken);
     }
+
+    @GetMapping("/me")
+    public UserDto getCurrentUser() {
+        var user = authService.getCurrentUser();
+        return userMapper.toUserDto(user);
+    }
+
+    // TODO: handle invalid/bad credentials exception
 }
