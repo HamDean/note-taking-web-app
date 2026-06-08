@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.SecretKey;
 import java.util.Date;
 
 @Service
@@ -27,7 +28,7 @@ public class JwtService {
             .subject(email)
             .issuedAt(new Date())
             .expiration(new Date(System.currentTimeMillis() + 1000L * expiration))
-            .signWith(Keys.hmacShaKeyFor(jwtConfig.getSecret().getBytes()))
+            .signWith(getSecretKey())
             .compact();
     }
 
@@ -39,7 +40,7 @@ public class JwtService {
 
     private Claims getClaims(String token) {
         return Jwts.parser()
-            .verifyWith(Keys.hmacShaKeyFor(jwtConfig.getSecret().getBytes()))
+            .verifyWith(getSecretKey())
             .build()
             .parseSignedClaims(token)
             .getPayload();
@@ -48,5 +49,9 @@ public class JwtService {
     public String getPrincipalFromToken(String token) {
         var  claims = getClaims(token);
         return claims.getSubject();
+    }
+
+    public SecretKey getSecretKey() {
+        return Keys.hmacShaKeyFor(jwtConfig.getSecret().getBytes());
     }
 }
