@@ -69,7 +69,7 @@ public class NoteService {
     }
 
     public NoteDto getNoteById(String id) {
-        var note = noteRepository.findById(id).orElse(null);
+        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
         if (note == null) throw new NoteNotFoundException();
 
         return noteMapper.toNoteDto(note);
