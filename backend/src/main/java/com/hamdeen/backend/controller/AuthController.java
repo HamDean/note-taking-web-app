@@ -8,13 +8,18 @@ import com.hamdeen.backend.mappers.UserMapper;
 import com.hamdeen.backend.services.AuthService;
 import com.hamdeen.backend.services.JwtService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
@@ -64,5 +69,8 @@ public class AuthController {
         return userMapper.toUserDto(user);
     }
 
-    // TODO: handle invalid/bad credentials exception
+    @ExceptionHandler(BadCredentialsException.class)
+    public Map<String, String> handleBadCredentialsException() {
+        return Map.of("message", "Invalid credentials");
+    }
 }

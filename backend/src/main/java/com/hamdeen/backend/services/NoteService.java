@@ -76,6 +76,7 @@ public class NoteService {
     }
 
     public NoteDto archiveNote(String id) {
+        // TODO: continue from here
         var note = noteRepository.findById(id).orElse(null);
 
         if (note == null) throw new NoteNotFoundException();
