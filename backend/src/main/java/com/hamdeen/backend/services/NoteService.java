@@ -76,9 +76,7 @@ public class NoteService {
     }
 
     public NoteDto archiveNote(String id) {
-        // TODO: continue from here
-        var note = noteRepository.findById(id).orElse(null);
-
+        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
         if (note == null) throw new NoteNotFoundException();
 
         note.setIsArchived(true);
@@ -90,7 +88,7 @@ public class NoteService {
     }
 
     public NoteDto updateNote(String id, String title, String content) {
-        var note = noteRepository.findById(id).orElse(null);
+        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
         if (note == null) throw new NoteNotFoundException();
 
         note.setTitle(title);
@@ -103,7 +101,7 @@ public class NoteService {
     }
 
     public void  deleteNote(String id) {
-        var note = noteRepository.findById(id).orElse(null);
+        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
         if (note == null) throw new NoteNotFoundException();
 
         note.getTags().clear();
