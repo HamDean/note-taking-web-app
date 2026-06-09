@@ -8,6 +8,7 @@ import com.hamdeen.backend.dtos.UserDto;
 import com.hamdeen.backend.mappers.UserMapper;
 import com.hamdeen.backend.services.AuthService;
 import com.hamdeen.backend.services.JwtService;
+import com.hamdeen.backend.services.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -32,6 +33,7 @@ public class AuthController {
     private final JwtService jwtService;
     private final JwtConfig jwtConfig;
     private final UserMapper userMapper;
+    private final UserService userService;
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(
@@ -63,13 +65,6 @@ public class AuthController {
         response.addCookie(cookie);
 
         return new JwtResponse(accessToken);
-    }
-
-    @PutMapping("/change-password")
-    public ResponseEntity<Void> changePassword(@Valid @RequestBody ChangePasswordRequest request){
-        authService.changePassword(request.getOldPassword(), request.getNewPassword());
-
-        return ResponseEntity.ok().build();
     }
 
     @ExceptionHandler(BadCredentialsException.class)
