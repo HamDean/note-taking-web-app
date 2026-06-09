@@ -21,6 +21,7 @@ public class NoteService {
     private final NoteRepository noteRepository;
     private final TagRepository tagRepository;
     private final AuthService authService;
+    private final UserService userService;
 
     public NoteDto createNote(String title, String content, String tags) {
         var note = new Note();
@@ -43,7 +44,7 @@ public class NoteService {
         }
 
         note.setId(UUID.randomUUID().toString());
-        note.setUser(authService.getCurrentUser());
+        note.setUser(userService.getCurrentUser());
         note.setTitle(title);
         note.setContent(content);
         note.setCreatedAt(LocalDateTime.now());
@@ -57,9 +58,9 @@ public class NoteService {
 
     public List<NoteDto> getAllNotes(String filter) {
         List<Note> notes;
-        var userId = authService.getCurrentUser().getId();
+        var userId = userService.getCurrentUser().getId();
 
-        var tag = tagRepository.findByNameAndUser(filter.toLowerCase(), authService.getCurrentUser()).orElse(null);
+        var tag = tagRepository.findByNameAndUser(filter.toLowerCase(), userService.getCurrentUser()).orElse(null);
 
         if (filter.isEmpty() || tag == null) notes = noteRepository.findAllByUserId(userId);
         else {
@@ -112,12 +113,12 @@ public class NoteService {
     }
 
     public  List<NoteDto> getAllArchivedNotes() {
-          var notes = noteRepository.findAllByIsArchivedIsTrueAndUserId(authService.getCurrentUser().getId());
+          var notes = noteRepository.findAllByIsArchivedIsTrueAndUserId(userService.getCurrentUser().getId());
 
         return notes.stream().map(noteMapper::toNoteDto).toList();
     }
 
     private @Nullable Note getNote(String id) {
-        return noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
+        return noteRepository.findByIdAndUserId(id, userService.getCurrentUser().getId()).orElse(null);
     }
 }

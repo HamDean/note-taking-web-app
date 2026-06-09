@@ -46,10 +46,5 @@ public class AuthService {
         userRepository.save(authenticatedUser);
     }
 
-    public User getCurrentUser() {
-        var auth = SecurityContextHolder.getContext().getAuthentication();
-        assert auth != null;
-        var email = (String) auth.getPrincipal();
-        return userRepository.findByEmail(email).orElseThrow();
-    }
+
 }

@@ -72,12 +72,6 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/me")
-    public UserDto getCurrentUser() {
-        var user = authService.getCurrentUser();
-        return userMapper.toUserDto(user);
-    }
-
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Map<String, String>> handleBadCredentialsException() {
         return ResponseEntity.badRequest().body(Map.of("message", "Invalid credentials"));

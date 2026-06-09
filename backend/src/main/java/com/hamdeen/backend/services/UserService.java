@@ -3,6 +3,7 @@ package com.hamdeen.backend.services;
 import com.hamdeen.backend.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.jspecify.annotations.NonNull;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,5 +22,12 @@ public class UserService implements UserDetailsService {
         var user = userRepository.findByEmail(email).orElseThrow();
 
         return new User(user.getEmail(), user.getPassword(), Collections.emptyList());
+    }
+
+    public com.hamdeen.backend.entities.User getCurrentUser() {
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        assert auth != null;
+        var email = (String) auth.getPrincipal();
+        return userRepository.findByEmail(email).orElseThrow();
     }
 }
