@@ -1,6 +1,7 @@
 package com.hamdeen.backend.controller;
 
 import com.hamdeen.backend.configs.JwtConfig;
+import com.hamdeen.backend.dtos.ChangePasswordRequest;
 import com.hamdeen.backend.dtos.JwtResponse;
 import com.hamdeen.backend.dtos.RegisterUserRequest;
 import com.hamdeen.backend.dtos.UserDto;
@@ -64,6 +65,13 @@ public class AuthController {
         return new JwtResponse(accessToken);
     }
 
+    @PutMapping("/change-password")
+    public ResponseEntity<Void> changePassword(@Valid @RequestBody ChangePasswordRequest request){
+        authService.changePassword(request.getOldPassword(), request.getNewPassword());
+
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/me")
     public UserDto getCurrentUser() {
         var user = authService.getCurrentUser();
@@ -71,7 +79,7 @@ public class AuthController {
     }
 
     @ExceptionHandler(BadCredentialsException.class)
-    public Map<String, String> handleBadCredentialsException() {
-        return Map.of("message", "Invalid credentials");
+    public ResponseEntity<Map<String, String>> handleBadCredentialsException() {
+        return ResponseEntity.badRequest().body(Map.of("message", "Invalid credentials"));
     }
 }
