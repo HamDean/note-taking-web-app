@@ -8,6 +8,7 @@ import com.hamdeen.backend.mappers.NoteMapper;
 import com.hamdeen.backend.repositories.NoteRepository;
 import com.hamdeen.backend.repositories.TagRepository;
 import lombok.AllArgsConstructor;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -69,14 +70,14 @@ public class NoteService {
     }
 
     public NoteDto getNoteById(String id) {
-        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
+        var note = getNote(id);
         if (note == null) throw new NoteNotFoundException();
 
         return noteMapper.toNoteDto(note);
     }
 
     public NoteDto archiveNote(String id) {
-        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
+        var note = getNote(id);
         if (note == null) throw new NoteNotFoundException();
 
         note.setIsArchived(true);
@@ -88,7 +89,7 @@ public class NoteService {
     }
 
     public NoteDto updateNote(String id, String title, String content) {
-        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
+        var note = getNote(id);
         if (note == null) throw new NoteNotFoundException();
 
         note.setTitle(title);
@@ -101,7 +102,7 @@ public class NoteService {
     }
 
     public void  deleteNote(String id) {
-        var note = noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
+        var note = getNote(id);
         if (note == null) throw new NoteNotFoundException();
 
         note.getTags().clear();
@@ -114,5 +115,9 @@ public class NoteService {
           var notes = noteRepository.findAllByIsArchivedIsTrueAndUserId(authService.getCurrentUser().getId());
 
         return notes.stream().map(noteMapper::toNoteDto).toList();
+    }
+
+    private @Nullable Note getNote(String id) {
+        return noteRepository.findByIdAndUserId(id, authService.getCurrentUser().getId()).orElse(null);
     }
 }
