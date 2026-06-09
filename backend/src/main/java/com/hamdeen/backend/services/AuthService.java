@@ -34,17 +34,5 @@ public class AuthService {
         return userMapper.toUserDto(newUser);
     }
 
-    public void changePassword(String oldPassword, String newPassword) {
-        var authenticatedUserEmail = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        var authenticatedUser = userRepository.findByEmail(authenticatedUserEmail).orElseThrow(UserNotFoundException::new);
-
-        if (!passwordEncoder.matches(oldPassword, authenticatedUser.getPassword())) {
-            throw new BadCredentialsException("Invalid old password");
-        }
-
-        authenticatedUser.setPassword(passwordEncoder.encode(newPassword));
-        userRepository.save(authenticatedUser);
-    }
-
 
 }
