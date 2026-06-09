@@ -4,6 +4,7 @@ import com.hamdeen.backend.dtos.CreateNoteRequest;
 import com.hamdeen.backend.dtos.NoteDto;
 import com.hamdeen.backend.exceptions.NoteNotFoundException;
 import com.hamdeen.backend.services.NoteService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class NoteController {
     @PostMapping
     public ResponseEntity<NoteDto> createNote(
             @RequestBody CreateNoteRequest request,
-            UriComponentsBuilder uriComponentsBuilder
+            @Valid UriComponentsBuilder uriComponentsBuilder
     ) {
         var noteDto = noteService.createNote(request.getTitle(), request.getContent(), request.getTags());
         var uri = uriComponentsBuilder.path("/notes/{id}").buildAndExpand(noteDto.getId()).toUri();
@@ -48,7 +49,7 @@ public class NoteController {
     }
 
     @PutMapping("/{id}")
-    public NoteDto updateNoteById(@PathVariable String id, @RequestBody CreateNoteRequest request) {
+    public NoteDto updateNoteById(@PathVariable String id, @Valid @RequestBody CreateNoteRequest request) {
         return noteService.updateNote(id, request.getTitle(), request.getContent());
     }
 
