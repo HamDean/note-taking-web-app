@@ -111,7 +111,7 @@ public class NoteService {
     }
 
     public  List<NoteDto> getAllArchivedNotes() {
-        var notes = noteRepository.findAllByIsArchivedIsTrue();
+          var notes = noteRepository.findAllByIsArchivedIsTrueAndUserId(authService.getCurrentUser().getId());
 
         return notes.stream().map(noteMapper::toNoteDto).toList();
     }
