@@ -1,4 +1,10 @@
+import LoginPage from "./pages/LoginPage";
+
 const Layout = () => {
-  return <></>;
+  return (
+    <>
+      <LoginPage />
+    </>
+  );
 };
 export default Layout;
