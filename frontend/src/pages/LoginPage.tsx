@@ -1,6 +1,6 @@
 const LoginPage = () => {
   return (
-    <div className="bg-neutral-100 dark:bg-neutral-700 h-screen px-4 md:px-30.75 flex flex-col justify-center">
+    <div className="bg-neutral-100 dark:bg-neutral-700 h-screen px-4 md:px-30.75 flex flex-col items-center justify-center">
       <form
         className="bg-white dark:bg-neutral-950 px-4 py-10 rounded-12 
             border border-neutral-200 dark:border-neutral-800 md:min-w-130.5
