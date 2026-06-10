@@ -63,6 +63,10 @@ const LoginPage = () => {
         >
           Login
         </button>
+
+        <hr className="text-neutral-200" />
+
+        <span className="text-neutral-600 text-center text-preset-5">Or log in with:</span>
       </form>
     </div>
   );
