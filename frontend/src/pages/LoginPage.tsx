@@ -44,7 +44,9 @@ const LoginPage = () => {
               >
                 Password
               </label>
-              <span className="text-neutral-600 underline text-xs cursor-pointer">Forgot</span>
+              <span className="text-neutral-600 underline text-xs cursor-pointer">
+                Forgot
+              </span>
             </div>
             <input
               type="password"
@@ -54,6 +56,14 @@ const LoginPage = () => {
             />
           </div>
         </div>
+
+        {/* Login button */}
+        <button
+          type="submit"
+          className="bg-blue-500 text-preset-3 text-white py-3.25 rounded-8 cursor-pointer"
+        >
+          Login
+        </button>
       </form>
     </div>
   );
