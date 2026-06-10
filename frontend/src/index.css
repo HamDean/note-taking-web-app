@@ -89,6 +89,8 @@
   --font-mono:  'Source Code Pro', monospace;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
   .text-preset-1 {
     font-size: 24px;
