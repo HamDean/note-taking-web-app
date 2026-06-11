@@ -32,7 +32,7 @@ const LoginPage = () => {
               id="email"
               placeholder="email@example.com"
               className="placeholder:text-neutral-500 placeholder:text-preset-5 outline-none border
-                    border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer
+                    border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer hover:bg-neutral-50 transition-colors
               "
             />
           </div>
@@ -53,7 +53,7 @@ const LoginPage = () => {
               type="password"
               name="password"
               id="password"
-              className=" outline-none border border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer"
+              className=" outline-none hover:bg-neutral-50 transition-colors border border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer"
             />
           </div>
         </div>
