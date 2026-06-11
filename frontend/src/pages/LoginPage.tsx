@@ -32,7 +32,7 @@ const LoginPage = () => {
               id="email"
               placeholder="email@example.com"
               className="placeholder:text-neutral-500 placeholder:text-preset-5 outline-none border
-                    border-neutral-300 rounded-8 h-10.5 px-4 py-3
+                    border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer
               "
             />
           </div>
@@ -45,7 +45,7 @@ const LoginPage = () => {
               >
                 Password
               </label>
-              <span className="text-neutral-600 underline text-xs cursor-pointer">
+              <span className="text-neutral-600 underline text-xs cursor-pointer hover:text-blue-500 transition-colors">
                 Forgot
               </span>
             </div>
@@ -53,7 +53,7 @@ const LoginPage = () => {
               type="password"
               name="password"
               id="password"
-              className=" outline-none border border-neutral-300 rounded-8 h-10.5 px-4 py-3"
+              className=" outline-none border border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer"
             />
           </div>
         </div>
@@ -72,6 +72,7 @@ const LoginPage = () => {
           Or log in with:
         </span>
 
+        {/* Google Login Button */}
         <div
           className="flex items-center w-full justify-center border hover:bg-neutral-50 transition-colors
          border-neutral-300 rounded-8 h-11 text-neutral-950 text-[16px] gap-4 cursor-pointer"
@@ -79,6 +80,16 @@ const LoginPage = () => {
           <img src={googleIcon} alt="Google" />
           <span>Google</span>
         </div>
+
+        {/* Horizontal Rule */}
+        <hr className="text-neutral-200" />
+
+        <span className="text-center text-neutral-600 text-preset-5">
+          No account yet?{" "}
+          <a href="" className="text-neutral-950 hover:underline hover:text-blue-500 transition-all">
+            Sign up
+          </a>
+        </span>
       </form>
     </div>
   );
