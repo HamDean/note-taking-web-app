@@ -23,7 +23,10 @@ const LoginPage = () => {
         <div className="pt-6 flex flex-col gap-4">
           {/* email section */}
           <div className="flex flex-col gap-[6px]">
-            <label htmlFor="email" className="text-preset-4 text-neutral-950">
+            <label
+              htmlFor="email"
+              className="text-preset-4 text-neutral-950 dark:text-white"
+            >
               Email Address
             </label>
             <input
@@ -32,7 +35,7 @@ const LoginPage = () => {
               id="email"
               placeholder="email@example.com"
               className="placeholder:text-neutral-500 placeholder:text-preset-5 outline-none border
-                    border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer hover:bg-neutral-50 transition-colors
+                    border-neutral-300 dark:border-neutral-600 rounded-8 h-10.5 px-4 py-3 cursor-pointer hover:bg-neutral-50 transition-colors
               "
             />
           </div>
@@ -41,7 +44,7 @@ const LoginPage = () => {
             <div className="flex justify-between">
               <label
                 htmlFor="password"
-                className="text-preset-4 text-neutral-950"
+                className="text-preset-4 text-neutral-950 dark:text-white"
               >
                 Password
               </label>
@@ -53,7 +56,7 @@ const LoginPage = () => {
               type="password"
               name="password"
               id="password"
-              className=" outline-none hover:bg-neutral-50 transition-colors border border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer"
+              className=" outline-none hover:bg-neutral-50 dark:border-neutral-600 transition-colors border border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer"
             />
           </div>
         </div>
@@ -66,27 +69,30 @@ const LoginPage = () => {
           Login
         </button>
 
-        <hr className="text-neutral-200" />
+        <hr className="text-neutral-200 dark:text-neutral-800" />
 
-        <span className="text-neutral-600 text-center text-preset-5">
+        <span className="text-neutral-600 dark:text-neutral-300 text-center text-preset-5">
           Or log in with:
         </span>
 
         {/* Google Login Button */}
         <div
           className="flex items-center w-full justify-center border hover:bg-neutral-50 transition-colors
-         border-neutral-300 rounded-8 h-11 text-neutral-950 text-[16px] gap-4 cursor-pointer"
+         border-neutral-300 dark:border-neutral-600 rounded-8 h-11 text-neutral-950 dark:text-white text-[16px] gap-4 cursor-pointer"
         >
           <img src={googleIcon} alt="Google" />
           <span>Google</span>
         </div>
 
         {/* Horizontal Rule */}
-        <hr className="text-neutral-200" />
+        <hr className="text-neutral-200 dark:text-neutral-800" />
 
-        <span className="text-center text-neutral-600 text-preset-5">
+        <span className="text-center text-neutral-600 dark:text-neutral-300 text-preset-5">
           No account yet?{" "}
-          <a href="" className="text-neutral-950 hover:underline hover:text-blue-500 transition-all">
+          <a
+            href=""
+            className="text-neutral-950 dark:text-white hover:underline hover:text-blue-500 transition-all"
+          >
             Sign up
           </a>
         </span>
@@ -137,3 +143,4 @@ const Logo = ({ className, textColor = "#0E121B" }: LogoProps) => {
     </svg>
   );
 };
+
