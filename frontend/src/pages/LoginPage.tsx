@@ -1,3 +1,5 @@
+import googleIcon from "../assets/images/icon-google.svg";
+
 const LoginPage = () => {
   return (
     <div className="bg-neutral-100 dark:bg-neutral-700 h-screen px-4 md:px-30.75 flex flex-col items-center justify-center">
@@ -66,7 +68,17 @@ const LoginPage = () => {
 
         <hr className="text-neutral-200" />
 
-        <span className="text-neutral-600 text-center text-preset-5">Or log in with:</span>
+        <span className="text-neutral-600 text-center text-preset-5">
+          Or log in with:
+        </span>
+
+        <div
+          className="flex items-center w-full justify-center border hover:bg-neutral-50 transition-colors
+         border-neutral-300 rounded-8 h-11 text-neutral-950 text-[16px] gap-4 cursor-pointer"
+        >
+          <img src={googleIcon} alt="Google" />
+          <span>Google</span>
+        </div>
       </form>
     </div>
   );
