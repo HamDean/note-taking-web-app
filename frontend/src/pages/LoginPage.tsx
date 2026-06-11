@@ -1,5 +1,3 @@
-import googleIcon from "../assets/images/icon-google.svg";
-
 const LoginPage = () => {
   return (
     <div className="bg-neutral-100 dark:bg-neutral-700 h-screen px-4 md:px-30.75 flex flex-col items-center justify-center">
@@ -35,7 +33,8 @@ const LoginPage = () => {
               id="email"
               placeholder="email@example.com"
               className="placeholder:text-neutral-500 placeholder:text-preset-5 outline-none border
-                    border-neutral-300 dark:border-neutral-600 rounded-8 h-10.5 px-4 py-3 cursor-pointer hover:bg-neutral-50 transition-colors
+                    border-neutral-300 dark:border-neutral-600 rounded-8 h-10.5 px-4 py-3 cursor-pointer
+                    hover:bg-neutral-50 transition-colors hover:dark:bg-neutral-800 dark:text-white
               "
             />
           </div>
@@ -56,7 +55,10 @@ const LoginPage = () => {
               type="password"
               name="password"
               id="password"
-              className=" outline-none hover:bg-neutral-50 dark:border-neutral-600 transition-colors border border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer"
+              className=" outline-none hover:bg-neutral-50 dark:border-neutral-600 transition-colors
+               border border-neutral-300 rounded-8 h-10.5 px-4 py-3 cursor-pointer
+               hover:dark:bg-neutral-800 dark:text-white
+               "
             />
           </div>
         </div>
@@ -78,9 +80,10 @@ const LoginPage = () => {
         {/* Google Login Button */}
         <div
           className="flex items-center w-full justify-center border hover:bg-neutral-50 transition-colors
-         border-neutral-300 dark:border-neutral-600 rounded-8 h-11 text-neutral-950 dark:text-white text-[16px] gap-4 cursor-pointer"
+         border-neutral-300 dark:border-neutral-600 rounded-8 h-11 text-neutral-950
+          dark:text-white text-[16px] gap-4 cursor-pointer hover:dark:bg-neutral-800"
         >
-          <img src={googleIcon} alt="Google" />
+          <GoogleIcon textColor="#fff" />
           <span>Google</span>
         </div>
 
@@ -91,7 +94,7 @@ const LoginPage = () => {
           No account yet?{" "}
           <a
             href=""
-            className="text-neutral-950 dark:text-white hover:underline hover:text-blue-500 transition-all"
+            className="text-neutral-950 dark:text-white hover:text-blue-500 transition-all"
           >
             Sign up
           </a>
@@ -108,6 +111,7 @@ type LogoProps = {
   className?: string;
 };
 
+// TODO: change text color based on theme
 const Logo = ({ className, textColor = "#0E121B" }: LogoProps) => {
   return (
     <svg
@@ -144,3 +148,21 @@ const Logo = ({ className, textColor = "#0E121B" }: LogoProps) => {
   );
 };
 
+const GoogleIcon = ({ textColor = "#0E121B" }: { textColor: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="25"
+      fill="none"
+      viewBox="0 0 24 25"
+    >
+      <path
+        fill={textColor}
+        fill-rule="evenodd"
+        d="M20.838 14.718a8.932 8.932 0 0 0 .086-2.857.558.558 0 0 0-.557-.473h-7.805a.562.562 0 0 0-.562.562v2.206c0 .31.252.562.562.562h4.275c.176 0 .305.18.239.343-.935 2.31-3.39 3.826-6.132 3.32-2.106-.39-3.832-2.06-4.284-4.153a5.477 5.477 0 0 1 8.369-5.776.572.572 0 0 0 .73-.06l1.703-1.733a.559.559 0 0 0-.046-.832 8.897 8.897 0 0 0-5.161-1.815c-4.872-.135-9.091 3.823-9.25 8.694-.167 5.108 3.927 9.302 8.995 9.302 4.383 0 8.037-3.14 8.838-7.29Z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  );
+};
