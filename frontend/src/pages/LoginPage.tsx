@@ -83,7 +83,7 @@ const LoginPage = () => {
          border-neutral-300 dark:border-neutral-600 rounded-8 h-11 text-neutral-950
           dark:text-white text-[16px] gap-4 cursor-pointer hover:dark:bg-neutral-800"
         >
-          <GoogleIcon textColor="#fff" />
+          <GoogleIcon />
           <span>Google</span>
         </div>
 
@@ -148,7 +148,7 @@ const Logo = ({ className, textColor = "#0E121B" }: LogoProps) => {
   );
 };
 
-const GoogleIcon = ({ textColor = "#0E121B" }: { textColor: string }) => {
+const GoogleIcon = ({ textColor = "#0E121B" }: { textColor?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
