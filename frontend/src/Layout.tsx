@@ -1,9 +1,9 @@
-import LoginPage from "./pages/LoginPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
 const Layout = () => {
   return (
     <>
-      <LoginPage />
+      <ForgotPasswordPage />
     </>
   );
 };
