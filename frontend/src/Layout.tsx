@@ -1,9 +1,9 @@
-import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 const Layout = () => {
   return (
     <>
-      <ForgotPasswordPage />
+      <ResetPasswordPage />
     </>
   );
 };
