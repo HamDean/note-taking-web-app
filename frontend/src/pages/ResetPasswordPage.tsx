@@ -43,7 +43,7 @@ const ResetPasswordPage = () => {
                "
             />
           </div>
-          <span className="text-neutral-600 text-[12px]">
+          <span className="text-neutral-600 text-[12px] dark:text-neutral-400">
             <img src={info} alt="info" className="inline-block mr-1 h-4 w-4" />
             At least 8 characters
           </span>
