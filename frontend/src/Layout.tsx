@@ -1,9 +1,9 @@
-import SignUpPage from "./pages/SignUpPage";
+import MenuItem from "./components/MenuItem";
 
 const Layout = () => {
   return (
     <>
-      <SignUpPage />
+      <MenuItem />
     </>
   );
 };
