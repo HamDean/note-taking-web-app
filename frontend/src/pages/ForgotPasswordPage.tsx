@@ -1,4 +1,4 @@
-import Logo from "../components/Logo";
+import Logo from "../components/icon-components/Logo";
 
 const ForgotPasswordPage = () => {
   return (

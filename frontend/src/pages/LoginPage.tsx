@@ -1,5 +1,5 @@
-import GoogleIcon from "../components/GoogleIcon";
-import Logo from "../components/Logo";
+import GoogleIcon from "../components/icon-components/GoogleIcon";
+import Logo from "../components/icon-components/Logo";
 
 const LoginPage = () => {
   return (
