@@ -1,12 +1,9 @@
-import HomeIcon from "./components/icon-components/HomeIcon";
-import MenuItem from "./components/MenuItem";
+import MenuTab from "./components/MenuTab";
 
 const Layout = () => {
   return (
     <>
-      <MenuItem>
-        <HomeIcon />
-      </MenuItem>
+      <MenuTab />
     </>
   );
 };
