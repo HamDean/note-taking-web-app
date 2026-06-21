@@ -7,20 +7,20 @@ import MenuItem from "./MenuItem";
 
 const MenuTab = () => {
   return (
-    <nav className="flex items-center w-full justify-between py-3 px-4 fixed bottom-0 border-t border-t-neutral-100">
-      <MenuItem>
+    <nav className="flex items-center md:h-18.5 w-full justify-between py-3 px-4 fixed bottom-0 border-t border-t-neutral-100">
+      <MenuItem name="Home">
         <HomeIcon />
       </MenuItem>
-      <MenuItem>
+      <MenuItem name="Search">
         <SearchIcon />
       </MenuItem>
-      <MenuItem>
+      <MenuItem name="Archived">
         <ArchivedIcon />
       </MenuItem>
-      <MenuItem>
+      <MenuItem name="Tags">
         <TagsIcon />
       </MenuItem>
-      <MenuItem>
+      <MenuItem name="Settings">
         <SettingsIcon />
       </MenuItem>
     </nav>
