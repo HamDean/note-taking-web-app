@@ -2,6 +2,7 @@ import HomeIcon from "./icon-components/HomeIcon";
 import SearchIcon from './icon-components/SearchIcon'
 import ArchivedIcon from './icon-components/ArchivedIcon'
 import TagsIcon from './icon-components/TagsIcon'
+import SettingsIcon from './icon-components/SettingsIcon'
 import MenuItem from "./MenuItem";
 
 const MenuTab = () => {
@@ -20,7 +21,7 @@ const MenuTab = () => {
         <TagsIcon />
       </MenuItem>
       <MenuItem>
-        <HomeIcon />
+        <SettingsIcon />
       </MenuItem>
     </nav>
   );
