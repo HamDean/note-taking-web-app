@@ -1,6 +1,7 @@
 import HomeIcon from "./icon-components/HomeIcon";
 import SearchIcon from './icon-components/SearchIcon'
 import ArchivedIcon from './icon-components/ArchivedIcon'
+import TagsIcon from './icon-components/TagsIcon'
 import MenuItem from "./MenuItem";
 
 const MenuTab = () => {
@@ -16,7 +17,7 @@ const MenuTab = () => {
         <ArchivedIcon />
       </MenuItem>
       <MenuItem>
-        <HomeIcon />
+        <TagsIcon />
       </MenuItem>
       <MenuItem>
         <HomeIcon />
