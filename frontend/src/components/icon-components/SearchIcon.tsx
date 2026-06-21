@@ -1,4 +1,4 @@
-const SearchIcon = ({ strokeColor =  "#525866"} : { strokeColor?: string}) => {
+const SearchIcon = ({ strokeColor =  "#0E121B"} : { strokeColor?: string}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
