@@ -1,3 +1,5 @@
+
+// dark color: #99A0AE
 const HomeIcon = ({ strokeColor = "#0E121B" }: { strokeColor?: string }) => {
   return (
     <svg

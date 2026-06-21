@@ -7,7 +7,10 @@ import MenuItem from "./MenuItem";
 
 const MenuTab = () => {
   return (
-    <nav className="flex items-center md:h-18.5 w-full justify-between py-3 px-4 fixed bottom-0 border-t border-t-neutral-100">
+    <nav className="flex items-center md:h-18.5 w-full justify-between
+                    py-3 px-4 fixed bottom-0 border-t border-t-neutral-100
+                    dark:bg-neutral-950 dark:text-neutral-400
+                    ">
       <MenuItem name="Home">
         <HomeIcon />
       </MenuItem>
