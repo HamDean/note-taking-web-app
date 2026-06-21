@@ -1,4 +1,5 @@
 import HomeIcon from "./icon-components/HomeIcon";
+import SearchIcon from './icon-components/SearchIcon'
 import MenuItem from "./MenuItem";
 
 const MenuTab = () => {
@@ -8,7 +9,7 @@ const MenuTab = () => {
         <HomeIcon />
       </MenuItem>
       <MenuItem>
-        <HomeIcon />
+        <SearchIcon />
       </MenuItem>
       <MenuItem>
         <HomeIcon />
