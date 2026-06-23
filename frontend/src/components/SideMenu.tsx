@@ -1,9 +1,11 @@
+import { useState } from "react";
 import logo from "../assets/images/logo.svg";
 import ArchivedIcon from "./icon-components/ArchivedIcon";
 import HomeIcon from "./icon-components/HomeIcon";
 import SideMenuTab from "./SideMenuTab";
 
 const SideMenu = () => {
+  const [tab, setSelectedTab] = useState("All Notes");
   return (
     <nav
       className="hidden lg:inline-flex flex-col px-4 py-3
@@ -13,11 +15,19 @@ const SideMenu = () => {
 
       <div>
         {/* tabs */}
-        <div>
-          <SideMenuTab name="All Notes">
+        <div className="flex flex-col gap-0.5">
+          <SideMenuTab
+            name="All Notes"
+            onSelectTab={(name) => setSelectedTab(name)}
+            isSelected={tab == "All Notes"}
+          >
             <HomeIcon />
           </SideMenuTab>
-          <SideMenuTab name="Archived Notes">
+          <SideMenuTab
+            name="Archived Notes"
+            onSelectTab={(name) => setSelectedTab(name)}
+            isSelected={tab == "Archived Notes"}
+          >
             <ArchivedIcon />
           </SideMenuTab>
         </div>
