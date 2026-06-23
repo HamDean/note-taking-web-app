@@ -21,14 +21,18 @@ const SideMenu = () => {
             onSelectTab={(name) => setSelectedTab(name)}
             isSelected={tab == "All Notes"}
           >
-            <HomeIcon />
+            <HomeIcon
+              strokeColor={tab == "All Notes" ? "#335CFF" : "#2B303B"}
+            />
           </SideMenuTab>
           <SideMenuTab
             name="Archived Notes"
             onSelectTab={(name) => setSelectedTab(name)}
             isSelected={tab == "Archived Notes"}
           >
-            <ArchivedIcon />
+            <ArchivedIcon
+              strokeColor={tab == "Archived Notes" ? "#335CFF" : "#2B303B"}
+            />
           </SideMenuTab>
         </div>
 
