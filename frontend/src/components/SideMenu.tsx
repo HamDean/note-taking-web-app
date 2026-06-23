@@ -1,15 +1,21 @@
 import logo from "../assets/images/logo.svg";
+import SideMenuTab from "./SideMenuTab";
 
 const SideMenu = () => {
   return (
-    <nav className="hidden lg:inline-block px-4 py-3 border-r border-r-neutral-200 h-screen">
-      <img src={logo} alt="Logo" />
+    <nav className="hidden lg:inline-flex flex-col px-4 py-3
+                    border-r border-r-neutral-200 h-screen gap-4">
+      <img className="h-7 w-23.75" src={logo} alt="Logo" />
 
-      {/* tabs */}
-      <div></div>
+      <div>
+        {/* tabs */}
+        <div>
+          <SideMenuTab />
+        </div>
 
-      {/* tags */}
-      <div></div>
+        {/* tags */}
+        <div></div>
+      </div>
     </nav>
   );
 };
