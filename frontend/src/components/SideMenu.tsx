@@ -7,6 +7,10 @@ import Tag from "./Tag";
 
 const SideMenu = () => {
   const [tab, setSelectedTab] = useState("All Notes");
+  const [tag, setSelectedTag] = useState("");
+
+  const tags = ["Work", "Personal", "Ideas", "Projects"];
+
   return (
     <nav
       className="hidden lg:inline-flex flex-col px-4 py-3
@@ -43,10 +47,14 @@ const SideMenu = () => {
           <span className="text-neutral-500 text-preset-4">Tags</span>
 
           <div className="flex flex-col gap-1 mt-2">
-            <Tag />
-            <Tag />
-            <Tag />
-            <Tag />
+            {tags.map((tagName) => (
+              <Tag
+                key={tagName}
+                name={tagName}
+                onSelectTag={setSelectedTag}
+                isSelected={tag === tagName}
+              />
+            ))}
           </div>
         </div>
       </div>
