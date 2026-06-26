@@ -14,7 +14,7 @@ const SideMenu = () => {
     >
       <img className="h-7 w-23.75" src={logo} alt="Logo" />
 
-      <div>
+      <div className="flex flex-col gap-2">
         {/* tabs */}
         <div className="flex flex-col gap-0.5">
           <SideMenuTab
@@ -38,7 +38,10 @@ const SideMenu = () => {
         </div>
 
         {/* tags */}
-        <div></div>
+        <div className="border-t border-t-neutral-200 py-2">
+          <span className="text-neutral-500 text-preset-4">Tags</span>
+          <div></div>
+        </div>
       </div>
     </nav>
   );
