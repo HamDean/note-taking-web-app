@@ -3,6 +3,7 @@ import logo from "../assets/images/logo.svg";
 import ArchivedIcon from "./icon-components/ArchivedIcon";
 import HomeIcon from "./icon-components/HomeIcon";
 import SideMenuTab from "./SideMenuTab";
+import Tag from "./Tag";
 
 const SideMenu = () => {
   const [tab, setSelectedTab] = useState("All Notes");
@@ -40,7 +41,13 @@ const SideMenu = () => {
         {/* tags */}
         <div className="border-t border-t-neutral-200 py-2">
           <span className="text-neutral-500 text-preset-4">Tags</span>
-          <div></div>
+
+          <div className="flex flex-col gap-1 mt-2">
+            <Tag />
+            <Tag />
+            <Tag />
+            <Tag />
+          </div>
         </div>
       </div>
     </nav>
