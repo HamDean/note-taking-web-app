@@ -7,8 +7,8 @@ import Tag from "./Tag";
 
 const SideMenu = () => {
   const [tab, setSelectedTab] = useState("All Notes");
-  const [tag, setSelectedTag] = useState("");
 
+  // temporal
   const tags = ["Work", "Personal", "Ideas", "Projects"];
 
   return (
@@ -51,8 +51,8 @@ const SideMenu = () => {
               <Tag
                 key={tagName}
                 name={tagName}
-                onSelectTag={setSelectedTag}
-                isSelected={tag === tagName}
+                onSelectTag={setSelectedTab}
+                isSelected={tab === tagName}
               />
             ))}
           </div>
