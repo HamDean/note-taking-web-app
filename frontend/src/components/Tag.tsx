@@ -11,7 +11,7 @@ const Tag = ({ name, onSelectTag, isSelected }: Props) => {
   return (
     <div
       onClick={() => onSelectTag(name)}
-      className={`flex justify-between items-center text-preset-4 text-neutral-700 p-3 cursor-pointer
+      className={`flex justify-between items-center w-60 text-preset-4 text-neutral-700 p-3 cursor-pointer
                   h-10  ${isSelected && "bg-neutral-100 dark:bg-neutral-800 rounded-8"}
     `}
     >

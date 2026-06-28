@@ -17,11 +17,11 @@ const SideMenuTab = ({
   return (
     <div
       onClick={() => onSelectTab(name)}
-      className={`flex h-10 cursor-pointer items-center hover:bg-neutral-100 hover:dark:bg-neutral-800
+      className={`flex h-10 w-60 cursor-pointer items-center hover:bg-neutral-100 hover:dark:bg-neutral-800
                     rounded-8 px-3 py-2.5 transition-colors 
-                    ${isSelected && "bg-neutral-100 dark:bg-neutral-800"}`}
+                    ${isSelected && "justify-between bg-neutral-100 dark:bg-neutral-800"}`}
     >
-      <div className="flex gap-2 items-center min-w-60 text-preset-4 text-neutral-950">
+      <div className="flex gap-2 items-center text-preset-4 text-neutral-950">
         {children}
         <span className="dark:text-white">{name}</span>
       </div>
