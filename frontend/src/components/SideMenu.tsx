@@ -4,6 +4,7 @@ import ArchivedIcon from "./icon-components/ArchivedIcon";
 import HomeIcon from "./icon-components/HomeIcon";
 import SideMenuTab from "./SideMenuTab";
 import Tag from "./Tag";
+import { NavLink } from "react-router";
 
 const SideMenu = () => {
   const [tab, setSelectedTab] = useState("All Notes");
@@ -22,24 +23,28 @@ const SideMenu = () => {
       <div className="flex flex-col gap-2">
         {/* tabs */}
         <div className="flex flex-col gap-0.5">
-          <SideMenuTab
-            name="All Notes"
-            onSelectTab={(name) => setSelectedTab(name)}
-            isSelected={tab == "All Notes"}
-          >
-            <HomeIcon
-              strokeColor={tab == "All Notes" ? "#335CFF" : "#2B303B"}
-            />
-          </SideMenuTab>
-          <SideMenuTab
-            name="Archived Notes"
-            onSelectTab={(name) => setSelectedTab(name)}
-            isSelected={tab == "Archived Notes"}
-          >
-            <ArchivedIcon
-              strokeColor={tab == "Archived Notes" ? "#335CFF" : "#2B303B"}
-            />
-          </SideMenuTab>
+          <NavLink to={`/${"All Notes"}`}>
+            <SideMenuTab
+              name="All Notes"
+              onSelectTab={(name) => setSelectedTab(name)}
+              isSelected={tab == "All Notes"}
+            >
+              <HomeIcon
+                strokeColor={tab == "All Notes" ? "#335CFF" : "#2B303B"}
+              />
+            </SideMenuTab>
+          </NavLink>
+          <NavLink to={`/${"Archived Notes"}`}>
+            <SideMenuTab
+              name="Archived Notes"
+              onSelectTab={(name) => setSelectedTab(name)}
+              isSelected={tab == "Archived Notes"}
+            >
+              <ArchivedIcon
+                strokeColor={tab == "Archived Notes" ? "#335CFF" : "#2B303B"}
+              />
+            </SideMenuTab>
+          </NavLink>
         </div>
 
         {/* tags */}
