@@ -9,8 +9,15 @@ const Header = ({ page }: { page?: string }) => {
                     justify-between items-center py-5 px-8
     "
     >
-      <h1 className="text-neutral-950 text-preset-1">{page}</h1>
-
+      <h1 className="text-neutral-950 text-preset-1">
+        {page.startsWith("tag-") ? (
+          <span className="text-neutral-600">
+            Notes Tagged: <span className="text-neutral-900">{page.split("-")[1]}</span>
+          </span>
+        ) : (
+          page
+        )}
+      </h1>
       <div className="flex gap-4">
         <SearchInput />
         <img src={settingsIcon} alt="Settings" />

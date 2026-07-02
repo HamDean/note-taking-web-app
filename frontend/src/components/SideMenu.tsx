@@ -53,12 +53,14 @@ const SideMenu = () => {
 
           <div className="flex flex-col gap-1 mt-2">
             {tags.map((tagName) => (
-              <Tag
-                key={tagName}
-                name={tagName}
-                onSelectTag={setSelectedTab}
-                isSelected={tab === tagName}
-              />
+              <NavLink to={`/tag-${tagName}`}>
+                <Tag
+                  key={tagName}
+                  name={tagName}
+                  onSelectTag={setSelectedTab}
+                  isSelected={tab === tagName}
+                />
+              </NavLink>
             ))}
           </div>
         </div>
